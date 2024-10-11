@@ -1,3 +1,8 @@
+# Name: Arnnav Kudale
+# Date: October 4, 2024
+# Course Code: ICS3U1-02
+# Description: Pygame Final Project - Halloween House
+
 import pygame
 import random
 
@@ -7,11 +12,15 @@ pygame.init()
 # Set up the display
 screen_size = (1000, 700)
 screen = pygame.display.set_mode(screen_size)
+
+# random pumpkin locations
 pumpkinLocation = [
     random.randint(0, 800),
     random.randint(0, 800),
     random.randint(0, 800)
 ]
+
+# random cloud formation
 cloudRandom = [
     (random.randint(-50, 50), random.randint(-30, 30), random.randint(60, 120), random.randint(40, 80)),
     (random.randint(-50, 50), random.randint(-30, 30), random.randint(60, 120), random.randint(40, 80)),
@@ -33,6 +42,7 @@ THICKNESS = 2 # Thickness of the outlines
 
 day = random.randint(0, 1)
 
+# draw all the roof, walls, and floors of the house
 def draw_wallroof():
     pygame.draw.polygon(screen, DARK_PURPLE, [(75, 260), (525, 260), (380, 110), (230,110)]) # Roof
     pygame.draw.polygon(screen, DARK_PURPLE, [(356.6,114),(380, 110),(391,127),(391.6,103),(395,101),(396,83),(388,81.5),(363.5,80),(354.7,81),(354.5,98),(357,101.5)]) # smokestack
@@ -63,6 +73,7 @@ def draw_wallroof():
     pygame.draw.polygon(screen, DARK_PURPLE, [(252.7377367396309,395.3239822436166),(280.1883845133494,396.9439703309475),(227.3462616142788,418.482152069556)]) # middle roof right
     pygame.draw.polygon(screen, DARK_PURPLE, [(349.8323015310108,394.2046100419463),(363.0896978141384,393.9633286031764),(417.6292425065408,427.4955775313766)]) # middle roof left
 
+# draw the doorsteps
 def draw_steps():
     pygame.draw.polygon(screen, DARK_PURPLE, [(356.4882629541197,596.9185334281933),(383.9883742718596,597.2939615690498),(388.1383565889332,598.4000629218143),(387.5834944855332,601.507290700854),(240,600),(239.4002632261764,596.003564813505),(243.2158891654089,595.3352199306643)]) # doorstep top
     pygame.draw.polygon(screen, DARK_PURPLE, [(242.3188959045594,623.5539403666398),(255.088791300337,623.1011071965768),(258.5382617316533,609.1670863608227),(258.6208900268287,600.8217152294757),(240,600)]) # left doorstep thing
@@ -74,6 +85,7 @@ def draw_steps():
     pygame.draw.polygon(screen, PURPLE, [(251.4877070689045,640.4539226767703),(249.5047385700064,649.7077756716279),(378.3976909983837,651.4704143373151),(377.0757119991183,641.7759016760357)]) # doorstep #5
     pygame.draw.polygon(screen, PURPLE, [(249.5047385700064,649.7077756716279),(378.3976909983837,651.4704143373151),(380,660),(245.3184717389992,661.8259164982273)]) # doorstep #6
 
+# draw the 4 pillars
 def draw_pillars():
     pygame.draw.polygon(screen, DARK_PURPLE, [(349.5141389811917,465.3519032032629),(387.2568154577701,467.3768140354371),(387.1019693290149,472.7964285418697),(352.0637772727048,473.0100643694983)]) # right door pillar top
     pygame.draw.polygon(screen, DARK_PURPLE, [(352.0637772727048,473.0100643694983),(357.7263242776612,476.4705097614161),(383.3082391745119,476.5127356319949),(387.1019693290149,472.7964285418697)]) # right door pillar middle top
@@ -92,7 +104,8 @@ def draw_pillars():
     pygame.draw.polygon(screen, DARK_PURPLE, [(515.5283079932541,460.193577754264),(535.6242024291216,459.4146671172148),(533.1192640435113,463.7284332030959),(516.9894220073359,463.4240965609038)]) # RIGHT PILLAR MIDDLE TOP
     pygame.draw.polygon(screen, PURPLE, [(516.9894220073359,463.4240965609038),(533.1192640435113,463.7284332030959),(533.0693743667402,580.3452418516854),(517.1347206568531,580.3452418516854)])  # RIGHT PILLAR MIDDLE
     pygame.draw.polygon(screen, DARK_PURPLE, [(517.1347206568531,580.3452418516854),(533.0693743667402,580.3452418516854),(538.5176167941869,588.4450047999075),(512.9081390012915,588.3607630966413)]) # RIGHT PILLAR BOTTOM
-    
+
+# draw all windows on the house
 def draw_windows():
     pygame.draw.polygon(screen, PURPLE, [(232.1152532613741,258.350253263706),(311.8595607833554,163.4165538327756),(390.790150881643,260.5201663935558),(366.9211064532949,259.4352098286309),(312.9445173482803,194.3378159331357),(254.8993411247974,258.6214924049372)]) # top window triangle
     pygame.draw.arc(screen, GLASS, (284.1931683777701,224.435209828630,50,70), 0, 3.14, 3000) # roofwindowp2
@@ -118,12 +131,14 @@ def draw_windows():
     pygame.draw.polygon(screen, GLASS, [(413.9979865092318,540.4020343062703),(414.4507040146422,507.5476781993423),(454.4191923494493,507.2889824819649),(455,540)]) # right first floor window bottom
     pygame.draw.polygon(screen, PURPLE, [(396.1322466429177,546.1997846067619),(473.7652553495046,545.2170882940203),(473.6445114679959,551.8918975688939),(395.5905692281415,551.4570566650507)]) # right first floor window sil
 
+# draw all elements on door
 def draw_doors():
     pygame.draw.polygon(screen, DARK_PURPLE, [(275.0318398826854,591.0554679278679),(349.0442191130622,591.0554679278679),(349.5141389811917,465.3519032032629),(275.0318398826854,464.8819833351334)]) # door outer
     pygame.draw.polygon(screen, PURPLE, [(287.7196763221786,591.5253877959973),(338.705982014216,591.0554679278679),(339.1759018823453,472.8706210933327),(284.9001571134023,472.1657412911386)]) # door inner
     pygame.draw.polygon(screen, GLASS, [(299.467673025413,533.9602039501501),(326.0181455747228,533.4902840820207),(325.5482257065934,483.6787780603081),(298.2928733550896,483.9137379943728)]) # door window
     pygame.draw.circle(screen, BLACK, (332.1943179938878,549.2885149312187), 4.5, 10) # door knob
 
+# draw the outlines of all the elements
 def draw_outlines():
     pygame.draw.polygon(screen, BLACK, [(75, 260), (525, 260), (380, 110), (230,110)], THICKNESS) # Roof
     pygame.draw.polygon(screen, BLACK, [(356.6,114),(380, 110),(391,127),(391.6,103),(395,101),(396,83),(388,81.5),(363.5,80),(354.7,81),(354.5,98),(357,101.5)], THICKNESS) # smokestack
@@ -231,9 +246,9 @@ def draw_pumpkin(x, y):
 def draw_tree(x, y):
     pygame.draw.rect(screen, (48, 29, 15), (x, y, 30, 80))
     pygame.draw.polygon(screen, (25, 87, 22), ((x - 80, y), (x + 25, y - 130), (x + 130, y)))
-    pygame.draw.polygon(screen, (25, 87, 22), ((x - 60, y - 100), (x + 25, y - 175), (x + 110, y - 100)))
-    pygame.draw.polygon(screen, (25, 87, 22), ((x - 50, y - 160), (x + 25, y - 225), (x + 100, y - 160)))
-    pygame.draw.polygon(screen, (25, 87, 22), ((x - 40, y - 210), (x + 25, y - 275), (x + 90, y - 210)))
+    pygame.draw.polygon(screen, (34, 139, 34), ((x - 60, y - 100), (x + 25, y - 175), (x + 110, y - 100)))
+    pygame.draw.polygon(screen, (0, 100, 0), ((x - 50, y - 160), (x + 25, y - 225), (x + 100, y - 160)))
+    pygame.draw.polygon(screen, (34, 139, 34), ((x - 40, y - 210), (x + 25, y - 275), (x + 90, y - 210)))
 
 def draw_cloud(x, y):
     pygame.draw.ellipse(screen, (116,120,128), (x+ cloudRandom[0][0], y + cloudRandom[0][1], cloudRandom[0][2], cloudRandom[0][3]))
@@ -290,16 +305,21 @@ while running:
         BACKGROUND = (94, 201, 255)
         screen.fill(BACKGROUND)  # Background
         pygame.draw.circle(screen, (255, 217, 3), (500, 50), 150)
-        
+    
+    # draw trees
     pygame.draw.rect(screen, GREEN, (0, 560, 1000, 300))  # Grass
     draw_tree(40, 520)
     draw_tree(550, 520)
+    
+    # draw clouds
     draw_cloud(100, 20)
     draw_cloud(300, 30)
     draw_cloud(500, 10)
     draw_cloud(600, 30)
     draw_cloud(800, 10)
     draw_cloud(900, 30)
+    
+    # draw house
     draw_wallroof()  # Draw the walls and roof
     draw_windows()  # Draw the windows
     draw_doors()  # Draw the doors
@@ -307,14 +327,19 @@ while running:
     draw_steps()  # Draw the steps
     draw_outlines()  # Draw the outlines
 
+    # draw bushes
     draw_bush(80, 570)
     draw_bush(120, 570)
     draw_bush(10, 570)
     draw_bush(400, 570)
     draw_bush(450, 570)
+    
+    # draw pumpkins
     draw_pumpkin(pumpkinLocation[0], 600)
     draw_pumpkin(pumpkinLocation[1], 600)
     draw_pumpkin(pumpkinLocation[2], 600)
+    
+    # if you press left click, it turns house lights on and off
     if (pygame.mouse.get_pressed()[0] == True and GLASS != (255,255,0)):
         GLASS = (255, 255, 0)
     elif (pygame.mouse.get_pressed()[0] == True and GLASS != (0,0,255)):
