@@ -615,6 +615,25 @@ def draw_big_pumpkin(x, y):
     pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 89, y - 100))
 
 
+def draw_moon(x, y):
+    pygame.draw.circle(screen, (200, 200, 200), (x, y), 150)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 70, y - 50), 25)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 60, y - 40), 22)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 50, y + 40), 28)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 50, y + 60), 20)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 20, y + 60), 18)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 20, y - 60), 22)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 10, y - 70), 17)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 30, y + 70), 20)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 60, y + 20), 20)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 70, y - 10), 25)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 50, y + 30), 17)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 50, y + 70), 23)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 40, y - 60), 19)
+    pygame.draw.circle(screen, (169, 169, 169), (x + 40, y - 70), 21)
+    pygame.draw.circle(screen, (169, 169, 169), (x - 60, y - 30), 18)
+
+
 # Main loop
 running = True
 while running:
@@ -626,26 +645,9 @@ while running:
     if day == 0:
         BACKGROUND = (24, 20, 64)
         screen.fill(BACKGROUND)  # Background
-        x = 700
-        y = 50
 
         # draw moon
-        pygame.draw.circle(screen, (200, 200, 200), (x, y), 150)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 70, y - 50), 25)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 60, y - 40), 22)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 50, y + 40), 28)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 50, y + 60), 20)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 20, y + 60), 18)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 20, y - 60), 22)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 10, y - 70), 17)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 30, y + 70), 20)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 60, y + 20), 20)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 70, y - 10), 25)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 50, y + 30), 17)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 50, y + 70), 23)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 40, y - 60), 19)
-        pygame.draw.circle(screen, (169, 169, 169), (x + 40, y - 70), 21)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 60, y - 30), 18)
+        draw_moon(700, 50)
     else:
         BACKGROUND = (94, 201, 255)
         screen.fill(BACKGROUND)  # Background
@@ -700,11 +702,13 @@ while running:
         draw_bat(batLocation[1][0], batLocation[1][1])
         draw_bat(batLocation[2][0], batLocation[2][1])
         draw_bat(batLocation[3][0], batLocation[3][1])
+
     # if you press left click, it turns house lights on and off
     if pygame.mouse.get_pressed()[0] == True and GLASS != (255, 255, 0):
         GLASS = (255, 255, 0)
     elif pygame.mouse.get_pressed()[0] == True and GLASS != (0, 0, 255):
         GLASS = (128, 128, 128)
+
     pygame.display.flip()  # Update the display
 
 pygame.quit()
