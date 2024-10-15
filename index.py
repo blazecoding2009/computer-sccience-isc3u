@@ -53,6 +53,7 @@ batLocation = [
     (random.randint(100, 800), random.randint(100, 800)),
     (random.randint(100, 800), random.randint(100, 800)),
 ]
+
 BACKGROUND = (255, 255, 255)  # White
 BLACK = (0, 0, 0)  # Black
 LIGHT_PURPLE = (107, 88, 152)  # Light blue for walls
@@ -597,17 +598,38 @@ def draw_bat(x, y):
         x + 45, y + 5), (x + 100, y - 10), (x + 110, y + 20), (x + 90, y + 25), (x + 70, y + 20)])
 
 
+def draw_big_pumpkin(x, y):
+    pygame.draw.ellipse(screen, (252, 127, 3), (x-35, y, 250, 220))
+    pygame.draw.ellipse(screen, (252, 104, 2), (x - 20, y, 220, 205))
+    pygame.draw.polygon(screen, (0, 0, 0), ((x + 40, y + 80),
+                        (x + 70, y + 80), (x + 55, y + 60)))
+    pygame.draw.polygon(screen, (0, 0, 0), ((x + 110, y + 80),
+                        (x + 140, y + 80), (x + 125, y + 60)))
+    pygame.draw.polygon(screen, (0, 0, 0), ((x + 80, y + 100),
+                        (x + 90, y + 100), (x + 85, y + 85)))
+    pygame.draw.polygon(screen, (0, 0, 0), [
+                        (x + 45, y + 120), (x + 135, y + 120), (x + 115, y + 140), (x + 65, y + 140)])
+    pygame.draw.rect(screen, (10, 191, 4), (x + 70, y - 60, 30, 60))
+    pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 85, y - 100))
+    pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 87, y - 100))
+    pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 89, y - 100))
+
+
 # Main loop
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    # if it is not day, make sure to generate moon
     if day == 0:
         BACKGROUND = (24, 20, 64)
         screen.fill(BACKGROUND)  # Background
         x = 700
         y = 50
+
+        # draw moon
         pygame.draw.circle(screen, (200, 200, 200), (x, y), 150)
         pygame.draw.circle(screen, (169, 169, 169), (x - 70, y - 50), 25)
         pygame.draw.circle(screen, (169, 169, 169), (x + 60, y - 40), 22)
@@ -623,7 +645,7 @@ while running:
         pygame.draw.circle(screen, (169, 169, 169), (x - 50, y + 70), 23)
         pygame.draw.circle(screen, (169, 169, 169), (x - 40, y - 60), 19)
         pygame.draw.circle(screen, (169, 169, 169), (x + 40, y - 70), 21)
-        pygame.draw.circle(screen, (169, 169, 169), (x - 60, y - 30), 18),
+        pygame.draw.circle(screen, (169, 169, 169), (x - 60, y - 30), 18)
     else:
         BACKGROUND = (94, 201, 255)
         screen.fill(BACKGROUND)  # Background
@@ -633,6 +655,15 @@ while running:
     pygame.draw.rect(screen, GREEN, (0, 560, 1000, 300))  # Grass
     draw_tree(40, 520)
     draw_tree(550, 520)
+    draw_tree(600, 530)
+    draw_tree(625, 520)
+    draw_tree(650, 540)
+    draw_tree(700, 500)
+    draw_tree(750, 520)
+    draw_tree(800, 530)
+    draw_tree(850, 520)
+    draw_tree(900, 540)
+    draw_tree(950, 500)
 
     # draw clouds
     draw_cloud(cloudLocation[0], 20)
@@ -641,7 +672,8 @@ while running:
     draw_cloud(cloudLocation[3], 30)
     draw_cloud(cloudLocation[4], 10)
     draw_cloud(cloudLocation[5], 30)
-
+    # draw big pumpkin
+    draw_big_pumpkin(700, 400)
     # draw house
     draw_wallroof()  # Draw the walls and roof
     draw_windows()  # Draw the windows
@@ -662,13 +694,12 @@ while running:
     draw_pumpkin(pumpkinLocation[1], 600)
     draw_pumpkin(pumpkinLocation[2], 600)
 
-    # draw bats
     if day == 0:
+        # draw bats
         draw_bat(batLocation[0][0], batLocation[0][1])
         draw_bat(batLocation[1][0], batLocation[1][1])
         draw_bat(batLocation[2][0], batLocation[2][1])
         draw_bat(batLocation[3][0], batLocation[3][1])
-
     # if you press left click, it turns house lights on and off
     if pygame.mouse.get_pressed()[0] == True and GLASS != (255, 255, 0):
         GLASS = (255, 255, 0)
