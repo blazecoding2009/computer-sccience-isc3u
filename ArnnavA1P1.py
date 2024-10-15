@@ -2,6 +2,8 @@
 # Date: October 4, 2024
 # Course Code: ICS3U1-02
 # Description: Pygame Final Project - Halloween House
+# ps: very sorry about the messy formatting, auto formatter was not working properly
+# ps2: I know the code is very long, but I wanted to make sure I made the house exactly as given
 
 import pygame
 import random
@@ -10,8 +12,8 @@ import random
 pygame.init()
 
 # Set up the display
-screen_size = (1000, 700)
-screen = pygame.display.set_mode(screen_size)
+SCREEN_SIZE = (1000, 700)
+screen = pygame.display.set_mode(SCREEN_SIZE)
 
 # random pumpkin locations
 pumpkinLocation = [
@@ -64,7 +66,7 @@ GREY = (128, 128, 128)  # Grey for the doorknob
 GLASS = (128, 128, 128)  # Color for the /glass
 THICKNESS = 2  # Thickness of the outlines
 
-day = random.randint(0, 1)
+DAY = random.randint(0, 1)
 
 # draw all the roof, walls, and floors of the house
 
@@ -322,12 +324,15 @@ def draw_doors():
     pygame.draw.polygon(screen, DARK_PURPLE, [(275.0318398826854, 591.0554679278679), (349.0442191130622, 591.0554679278679), (
         # door outer
         349.5141389811917, 465.3519032032629), (275.0318398826854, 464.8819833351334)])
+
     pygame.draw.polygon(screen, PURPLE, [(287.7196763221786, 591.5253877959973), (338.705982014216, 591.0554679278679), (
         # door inner
         339.1759018823453, 472.8706210933327), (284.9001571134023, 472.1657412911386)])
+
     pygame.draw.polygon(screen, GLASS, [(299.467673025413, 533.9602039501501), (326.0181455747228, 533.4902840820207), (
         # door window
         325.5482257065934, 483.6787780603081), (298.2928733550896, 483.9137379943728)])
+
     pygame.draw.circle(screen, BLACK, (332.1943179938878,
                        549.2885149312187), 4.5, 10)  # door knob
 
@@ -341,21 +346,16 @@ def draw_outlines():
         # smokestack
         396, 83), (388, 81.5), (363.5, 80), (354.7, 81), (354.5, 98), (357, 101.5)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [
-                        # roof to floor pt1
                         (514, 270), (500, 280), (97, 275), (87, 267)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [
-                        # roof to floor pt1
                         (514, 270), (87, 267), (75, 260), (525, 260)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(500, 280), (97, 275), (97, 380), (244, 382), (245, 401), (253, 395), (
-        # Floor #1
         279, 395), (317, 381), (350, 394), (363, 394), (375, 400), (500, 395)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(97, 380), (91.5, 380), (73, 424),  (
-        # Left wing
         213, 425.7), (228, 416), (245, 401), (244, 381)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(375, 400), (376, 394), (500, 395), (
         560, 427), (560, 427), (417, 427.5)], THICKNESS)  # Right wing
     pygame.draw.polygon(screen, BLACK, [(560.0287301991464, 427.0362243452714), (417.6292425065408, 427.4955775313766), (212.866282659957, 425.7165178129071), (73.1008584073925, 424.284495023434), (
-        # floortofloorp1
         77.6107956357955, 433.3410228383956), (213.4753610433269, 434.0666814334718), (416.715627029193, 435.0385889407103), (551.0950629816981, 436.1121929563096)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(232.1152532613741, 258.350253263706), (311.8595607833554, 163.4165538327756), (390.790150881643, 260.5201663935558), (
         366.9211064532949, 259.4352098286309), (312.9445173482803, 194.3378159331357), (254.8993411247974, 258.6214924049372)], THICKNESS)
@@ -382,10 +382,8 @@ def draw_outlines():
     pygame.draw.polygon(screen, BLACK, [(500, 280), (498.7136804866578, 275.4783492983192), (384.7660099102104, 276.3003336334477), (384.6832032977753, 280.5489816662205), (
         382.1819875341482, 290.2558659813935), (378.5337124154174, 289.8870974505418), (376.7116410428669, 295.3533115681932), (375.9153368465256, 394.0915849935002), (500, 395)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(392.5190076052821, 393.7569582566205), (393.2387831823424, 304.9366520473888), (
-        # window right
         475.2931989672085, 305.656427624449), (474.7173785055604, 394.7646440645048)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(403.1716861457736, 394.0448684874446), (456.4350788482306, 394.0448684874446), (
-        # window right
         457.0108993098787, 306.0882929706851), (403.3156412611856, 305.2245622782128)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(409.2178009930792, 388.4306189863747), (450, 390), (
         450.1010537701001, 353.5934810566598), (408.9298907622551, 353.4495259412478)], THICKNESS)
@@ -497,15 +495,6 @@ def draw_outlines():
         533.0693743667402, 580.3452418516854), (517.1347206568531, 580.3452418516854)], THICKNESS)
     pygame.draw.polygon(screen, BLACK, [(517.1347206568531, 580.3452418516854), (533.0693743667402, 580.3452418516854), (
         538.5176167941869, 588.4450047999075), (512.9081390012915, 588.3607630966413)], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
-    # pygame.draw.polygon(screen, BLACK, [], THICKNESS)
 
 # pumpkin function
 
@@ -565,15 +554,10 @@ def draw_cloud(x, y):
 
 
 def draw_bush(x, y):
-    # Base bush color
     pygame.draw.ellipse(screen, (34, 139, 34), (x, y, 100, 60))
-
-    # Adding some variation to the bush
     pygame.draw.ellipse(screen, (0, 100, 0), (x - 20, y + 10, 70, 50))
     pygame.draw.ellipse(screen, (50, 205, 50), (x + 30, y - 10, 80, 55))
     pygame.draw.ellipse(screen, (34, 139, 34), (x + 10, y + 20, 60, 40))
-
-    # Adding more detail with smaller leaves
     pygame.draw.ellipse(screen, (0, 128, 0), (x - 10, y + 5, 30, 20))
     pygame.draw.ellipse(screen, (34, 139, 34), (x + 40, y + 10, 30, 20))
     pygame.draw.ellipse(screen, (0, 100, 0), (x + 20, y - 5, 40, 25))
@@ -597,6 +581,8 @@ def draw_bat(x, y):
     pygame.draw.polygon(screen, (20, 20, 20), [(
         x + 45, y + 5), (x + 100, y - 10), (x + 110, y + 20), (x + 90, y + 25), (x + 70, y + 20)])
 
+# big pumpkin function
+
 
 def draw_big_pumpkin(x, y):
     pygame.draw.ellipse(screen, (252, 127, 3), (x-35, y, 250, 220))
@@ -613,6 +599,8 @@ def draw_big_pumpkin(x, y):
     pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 85, y - 100))
     pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 87, y - 100))
     pygame.draw.line(screen, (0, 100, 0), (x + 85, y - 60), (x + 89, y - 100))
+
+# moon function
 
 
 def draw_moon(x, y):
@@ -633,6 +621,22 @@ def draw_moon(x, y):
     pygame.draw.circle(screen, (169, 169, 169), (x + 40, y - 70), 21)
     pygame.draw.circle(screen, (169, 169, 169), (x - 60, y - 30), 18)
 
+# draw all trees
+
+
+def draw_trees():
+    draw_tree(40, 520)
+    draw_tree(550, 520)
+    draw_tree(600, 530)
+    draw_tree(625, 520)
+    draw_tree(650, 540)
+    draw_tree(700, 500)
+    draw_tree(750, 520)
+    draw_tree(800, 530)
+    draw_tree(850, 520)
+    draw_tree(900, 540)
+    draw_tree(950, 500)
+
 
 # Main loop
 running = True
@@ -642,7 +646,7 @@ while running:
             running = False
 
     # if it is not day, make sure to generate moon
-    if day == 0:
+    if DAY == 0:
         BACKGROUND = (24, 20, 64)
         screen.fill(BACKGROUND)  # Background
 
@@ -655,17 +659,7 @@ while running:
 
     # draw trees
     pygame.draw.rect(screen, GREEN, (0, 560, 1000, 300))  # Grass
-    draw_tree(40, 520)
-    draw_tree(550, 520)
-    draw_tree(600, 530)
-    draw_tree(625, 520)
-    draw_tree(650, 540)
-    draw_tree(700, 500)
-    draw_tree(750, 520)
-    draw_tree(800, 530)
-    draw_tree(850, 520)
-    draw_tree(900, 540)
-    draw_tree(950, 500)
+    draw_trees()
 
     # draw clouds
     draw_cloud(cloudLocation[0], 20)
@@ -695,9 +689,8 @@ while running:
     draw_pumpkin(pumpkinLocation[0], 600)
     draw_pumpkin(pumpkinLocation[1], 600)
     draw_pumpkin(pumpkinLocation[2], 600)
-
-    if day == 0:
-        # draw bats
+    # if its not day, draw bats
+    if DAY == 0:
         draw_bat(batLocation[0][0], batLocation[0][1])
         draw_bat(batLocation[1][0], batLocation[1][1])
         draw_bat(batLocation[2][0], batLocation[2][1])
