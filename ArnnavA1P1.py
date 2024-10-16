@@ -644,6 +644,7 @@ while running:
     draw_cloud(cloudLocation[5], 30)
     # draw big pumpkin
     draw_big_pumpkin(700, 400)
+    
     # draw house
     draw_wallroof()  # Draw the walls and roof
     draw_windows()  # Draw the windows
